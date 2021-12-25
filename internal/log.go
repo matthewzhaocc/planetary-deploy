@@ -9,10 +9,10 @@ type logStatement struct {
 	message string
 }
 
-func setupLogger() {
+func SetupLogger() {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 }
 
-func logMessage(message string) {
+func LogMessage(message string) {
 	log.Print(message)
 }

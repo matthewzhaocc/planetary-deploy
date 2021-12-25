@@ -1,12 +1,11 @@
 package main
 
-import "github.com/matthewzhaocc/planetary-deploy/internal/log"
+import "github.com/matthewzhaocc/planetary-deploy/internal"
 
 func init() {
-	
+	internal.SetupLogger()
 }
 
 func main() {
-	log.setupLogger()
-	log.logMessage("hello")
+	internal.LogMessage("hello")
 }
