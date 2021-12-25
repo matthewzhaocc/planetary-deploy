@@ -10,3 +10,8 @@ type Server struct {
 	DB     *gorm.DB
 	Logger *log.Logger
 }
+
+type ServerConfig struct {
+	SqlType   string `json:"engine"`
+	SqlString string `json:"endpoint"`
+}
