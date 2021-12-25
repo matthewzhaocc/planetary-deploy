@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func authenticate(serv types.Server) func(w http.ResponseWriter, r *http.Request) {
+func Authenticate(serv types.Server) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var user NewUser
 		err := json.NewDecoder(r.Body).Decode(&user)

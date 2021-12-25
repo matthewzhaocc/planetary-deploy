@@ -28,5 +28,6 @@ func AddOrgRoute(serv types.Server) func(w http.ResponseWriter, r *http.Request)
 		var org NewOrg
 		json.NewDecoder(r.Body).Decode(&org)
 		AddOrg(serv, org)
+		serv.Logger.LogRequest(r)
 	}
 }

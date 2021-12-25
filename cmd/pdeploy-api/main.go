@@ -5,14 +5,14 @@ import (
 	"os"
 
 	"github.com/matthewzhaocc/planetary-deploy/internal"
+	"github.com/matthewzhaocc/planetary-deploy/internal/log"
 )
 
 func init() {
-	internal.SetupLogger()
+	log.Setup()
 }
 
 func main() {
-	internal.LogMessage("hello")
 
 	// Start API server
 	http.ListenAndServe(":"+os.Getenv("PORT"), internal.GetMux())
