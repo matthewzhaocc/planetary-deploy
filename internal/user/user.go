@@ -20,7 +20,7 @@ type NewUser struct {
 	Password string `json:"password"`
 }
 
-func (u *NewUser) toHash() {
+func (u *User) toHash() {
 	bytes, _ := bcrypt.GenerateFromPassword([]byte(u.Password), 14)
 	u.Password = string(bytes)
 }
@@ -32,6 +32,7 @@ func (u *User) verifyHash(pass string) bool {
 
 func AddUser(serv types.Server, u NewUser) {
 	user := User{Username: u.Username, Password: u.Password}
+	user.toHash()
 	serv.DB.Create(&user)
 }
 
